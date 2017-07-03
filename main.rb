@@ -9,4 +9,11 @@ require './filters'
 
 # binding.pry
 
-pp @candidates
+# find(5)
+
+# pp @candidates
+
+# @candidates.each {|candidate| puts experienced?(candidate)}
+qualified_candidates(@candidates)
+
+# @candidates.each {|candidate| puts ruby_or_python?(candidate)}

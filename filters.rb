@@ -1,16 +1,58 @@
-# In this file we define the methods to help filter out candidates
-# This way, we keep these methods separated from other potential parts of the program
 
 def find(id)
-  # Your code Here
-end
+  puts @candidates.find {|candidate| candidate[:id] == id}
 
-def experienced?(candidate)
-  # Your code Here
 end
 
 def qualified_candidates(candidates)
-  # Your code Here
+   puts candidates.select {|candidate|
+    experienced?(candidate)\
+      and hundred_points?(candidate)\
+      and over_17?(candidate)\
+      and applied_15_days?(candidate)\
+      and ruby_or_python?(candidate)}
 end
+
+def experienced?(candidate)
+  if candidate[:years_of_experience] >= 2
+    true
+  else
+    false
+  end
+end
+
+def hundred_points?(candidate)
+  if candidate[:github_points] >= 100
+    true
+  else
+    false
+  end
+end
+
+def over_17?(candidate)
+  if candidate[:age] > 17
+    true
+  else
+    false
+  end
+end
+
+def ruby_or_python?(candidate)
+  if candidate[:languages].index("Ruby") or candidate[:languages].index("Python")
+    true
+  else
+    false
+  end
+end
+
+def applied_15_days?(candidate)
+  if candidate[:date_applied] >= 15.days.ago.to_date
+    true
+  else
+    false
+  end
+end
+
+
 
 # More methods will go below
